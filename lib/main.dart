@@ -44,14 +44,14 @@ class _CalistaWidgetState extends State<CalistaWidget> {
           child: ListView(
         children: <Widget>[
           CustomBoxWidget(title: "Calista"),
-          CustomBoxWidget(title: "Sucks"),
-          CustomBoxWidget(title: "ass"),
+          CustomBoxWidget(title: "is"),
+          CustomBoxWidget(title: "cool"),
           CustomBoxWidget(title: "Calista"),
-          CustomBoxWidget(title: "Sucks"),
-          CustomBoxWidget(title: "ass"),
+          CustomBoxWidget(title: "is"),
+          CustomBoxWidget(title: "cool"),
           CustomBoxWidget(title: "Calista"),
-          CustomBoxWidget(title: "Sucks"),
-          CustomBoxWidget(title: "ass"),
+          CustomBoxWidget(title: "is"),
+          CustomBoxWidget(title: "cool"),
         ],
       )),
     );
