@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Home Page',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -20,12 +20,73 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: CalistaWidget(title: "Calista's title"),
     );
   }
 }
+
+class CalistaWidget extends StatefulWidget {
+  final String title;
+
+  CalistaWidget({Key key, this.title}) : super(key: key);
+
+  _CalistaWidgetState createState() => _CalistaWidgetState();
+}
+
+class _CalistaWidgetState extends State<CalistaWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text(this.widget.title)),
+      body: Center(
+          child: ListView(
+        children: <Widget>[
+          CustomBoxWidget(title: "Calista"),
+          CustomBoxWidget(title: "Sucks"),
+          CustomBoxWidget(title: "ass"),
+          CustomBoxWidget(title: "Calista"),
+          CustomBoxWidget(title: "Sucks"),
+          CustomBoxWidget(title: "ass"),
+          CustomBoxWidget(title: "Calista"),
+          CustomBoxWidget(title: "Sucks"),
+          CustomBoxWidget(title: "ass"),
+        ],
+      )),
+    );
+  }
+}
+
+class CustomBoxWidget extends StatelessWidget {
+  final String title;
+  CustomBoxWidget({Key key, this.title}) : super(key: key);
+
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.all(20.0),
+      width: MediaQuery.of(context).size.width * .80,
+      height: MediaQuery.of(context).size.width * .20,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(15.0)),
+        boxShadow: [
+          BoxShadow(blurRadius: 5.0, spreadRadius: 5.0, color: Colors.grey)
+        ],
+        color: Colors.white,
+      ),
+      child: Center(
+        child: Text(this.title),
+      ),
+    );
+  }
+}
+
+
+
+
+
+
+
 
 // class MyHomePage extends StatefulWidget {
 //   MyHomePage({Key key, this.title}) : super(key: key);
@@ -111,91 +172,3 @@ class MyApp extends StatelessWidget {
 //     );
 //   }
 // }
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  var customs = <CustomWidget>[];
-
-  @override
-  Widget build(BuildContext build) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Hello"),
-      ),
-      body: Center(
-        child: Column(
-          children: [
-            GestureDetector(
-              onTap: () => {this.setState(() {})},
-              child: Container(
-                width: 20,
-                height: 20,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(100),
-                ),
-              ),
-            ),
-            Center(
-                child: ListView(
-              children: <Widget>[
-                CustomWidget(
-                  customTitle: "Hello",
-                ),
-                CustomWidget(
-                  customTitle: "Calista",
-                ),
-                CustomWidget(
-                  customTitle: "Sucks",
-                ),
-                CustomWidget(
-                  customTitle: "Sucks",
-                ),
-                CustomWidget(
-                  customTitle: "Sucks",
-                ),
-                CustomWidget(
-                  customTitle: "Sucks",
-                ),
-              ],
-            )),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class CustomWidget extends StatelessWidget {
-  CustomWidget({Key key, this.customTitle}) : super(key: key);
-
-  final String customTitle;
-
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(15.0),
-      decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(15.0),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 5,
-              blurRadius: 7,
-              offset: Offset(0, 3),
-            )
-          ]),
-      width: MediaQuery.of(context).size.width * .80,
-      height: MediaQuery.of(context).size.width * .30,
-      child: Center(
-        child: Text(this.customTitle),
-      ),
-    );
-  }
-}
