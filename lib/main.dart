@@ -20,63 +20,9 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.blue,
       ),
-      home: CalistaWidget(title: "Calista's title"),
-    );
-  }
-}
-
-class CalistaWidget extends StatefulWidget {
-  final String title;
-
-  CalistaWidget({Key key, this.title}) : super(key: key);
-
-  _CalistaWidgetState createState() => _CalistaWidgetState();
-}
-
-class _CalistaWidgetState extends State<CalistaWidget> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(this.widget.title)),
-      body: Center(
-          child: ListView(
-        children: <Widget>[
-          CustomBoxWidget(title: "Calista"),
-          CustomBoxWidget(title: "is"),
-          CustomBoxWidget(title: "cool"),
-          CustomBoxWidget(title: "Calista"),
-          CustomBoxWidget(title: "is"),
-          CustomBoxWidget(title: "cool"),
-          CustomBoxWidget(title: "Calista"),
-          CustomBoxWidget(title: "is"),
-          CustomBoxWidget(title: "cool"),
-        ],
-      )),
-    );
-  }
-}
-
-class CustomBoxWidget extends StatelessWidget {
-  final String title;
-  CustomBoxWidget({Key key, this.title}) : super(key: key);
-
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(20.0),
-      width: MediaQuery.of(context).size.width * .80,
-      height: MediaQuery.of(context).size.width * .20,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(15.0)),
-        boxShadow: [
-          BoxShadow(blurRadius: 5.0, spreadRadius: 5.0, color: Colors.grey)
-        ],
-        color: Colors.white,
-      ),
-      child: Center(
-        child: Text(this.title),
-      ),
+      home: Text("Home"),
     );
   }
 }
