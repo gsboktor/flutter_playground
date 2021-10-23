@@ -24,6 +24,7 @@ class _ContentCardState extends State<ContentCard> {
           height: SizeConfig.blockSizeVertical * 140,
           child: Container(
             child: Center(
+              //TODO: Replace generic Text Widget with a new Custom Stateful Widget called "ContentCardInternal".
               child: Text("Eat Ass", style: HeaderTextStyle),
             ),
           )),
