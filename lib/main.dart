@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_playground/components/ActionButtonRow/ActionButtonRow.dart';
+import 'package:flutter_playground/components/ContentCard/ContentCard.dart';
 import 'package:flutter_playground/utils/SizeConfig.dart';
-import './constants/styles/TextStyles.dart';
+import 'components/PageBanner.dart';
+import 'components/Templates/PaddedPageContainer.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ExcerptApp());
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class ExcerptApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Home Page',
+        title: 'Excerpt App',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.grey,
         ),
-        home: MyHomePage(title: "Home"));
+        home: MyHomePage(title: "Excerpt App"));
   }
 }
 
@@ -32,14 +34,21 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
+        body: PaddedPageContainer(
+            child: Column(
+      children: [
+        PageBanner(
+          bannerText: "excerpt.",
         ),
-        body: Center(
-          child: Container(
-              decoration: BoxDecoration(color: Colors.red),
-              width: SizeConfig.safeBlockHorizontal * 48,
-              height: SizeConfig.safeBlockVertical * 25),
-        ));
+        Padding(
+          padding: EdgeInsets.only(top: SizeConfig.safeBlockVertical * 2.5),
+          child: ContentCard(),
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: SizeConfig.safeBlockVertical * 3),
+          child: ActionButtonRow(),
+        ),
+      ],
+    )));
   }
 }
