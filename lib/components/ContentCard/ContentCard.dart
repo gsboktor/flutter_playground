@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_playground/components/ContentCard/ContentCardInternal.dart';
 import 'package:flutter_playground/constants/styles/TextStyles.dart';
 import 'package:flutter_playground/utils/SizeConfig.dart';
 import 'package:swipeable/swipeable.dart';
@@ -21,12 +22,11 @@ class _ContentCardState extends State<ContentCard> {
                     color: Colors.grey[300], spreadRadius: 4, blurRadius: 6)
               ]),
           width: double.infinity,
-          height: SizeConfig.blockSizeVertical * 140,
+          height: SizeConfig.blockSizeVertical * 135,
           child: Container(
             child: Center(
-              //TODO: Replace generic Text Widget with a new Custom Stateful Widget called "ContentCardInternal".
-              child: Text("Eat Ass", style: HeaderTextStyle),
-            ),
+                //TODO: Replace generic Text Widget with a new Custom Stateful Widget called "ContentCardInternal".
+                child: ContentCardInternal()),
           )),
     );
   }
